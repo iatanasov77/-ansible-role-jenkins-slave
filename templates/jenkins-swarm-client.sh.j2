@@ -48,7 +48,7 @@ start() {
     
     rm "${PID_FILE}"
     
-    java -jar ${SWARM_CLIENT_FILE} -name {{ jenkins_slave_name }} -description "{{ jenkins_swarm_description }}" -labels "{{ jenkins_swarm_labels }}" -executors {{ jenkins_swarm_executors }} -username {{ jenkins_remote_username }} -password {{ jenkins_remote_password }} -fsroot {{ jenkins_slave_home }} -master {{ jenkins_url }} -deleteExistingClients -disableSslVerification -mode '{{ jenkins_swarm_mode }}' -showHostName 1> "${LOG_FILE}" 2>&1 &
+    java -jar ${SWARM_CLIENT_FILE} -name {{ jenkins_slave_name }} -description "{{ jenkins_swarm_description }}" -labels "{{ jenkins_swarm_labels }}" -executors {{ jenkins_swarm_executors }} -username {{ jenkins_remote_username }} -password {{ jenkins_remote_password }} -fsroot {{ jenkins_slave_home }} -master {{ jenkins_url }} -deleteExistingClients -disableSslVerification -mode '{{ jenkins_swarm_mode }}' 1> "${LOG_FILE}" 2>&1 &
     #-t java=~/tools/jdk1.8.0_45 -t gradle=~/tools/gradle-2.9 -t Maven=~/tools/apache-maven-3.3.3 -t Groovy2=~/tools/groovy-2.4.5 -disableClientsUniqueId
     
     echo $! > "${PID_FILE}"
